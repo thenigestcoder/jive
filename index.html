@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Every Day Hustlin</title>
+
+<!-- BOOTSTRAP -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- JQUERY -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #101010;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, .navbar-brand {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 55px;
+}
+
+.tagline {
+    color: #c7ff38;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #101010;
+    border-bottom: 1px solid #292929;
+    padding: 15px;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    color: white;
+}
+
+.navbar-brand span {
+    color: #c7ff38;
+    font-size: 12px;
+}
+
+.nav-link {
+    color: white !important;
+    margin-left: 20px;
+}
+
+.nav-link:hover {
+    color: #c7ff38 !important;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background:
+    linear-gradient(to right, rgba(0,0,0,.85), rgba(0,0,0,.2)),
+    url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1800&q=80')
+    center/cover;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 12vw, 150px);
+    line-height: .95;
+}
+
+.hero-content {
+    padding-top: 80px;
+}
+
+.shop-btn {
+    border-radius: 0;
+    padding: 14px 30px;
+    font-weight: bold;
+}
+
+/* MARQUEE */
+.marquee {
+    background: #c7ff38;
+    color: #101010;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 15px;
+    font-family: 'Anton', sans-serif;
+    font-size: 23px;
+}
+
+.marquee-track {
+    animation: scrollText 18s linear infinite;
+}
+
+@keyframes scrollText {
+    from { transform: translateX(0); }
+    to { transform: translateX(-30%); }
+}
+
+/* SHOP */
+.section-header {
+    margin-bottom: 40px;
+}
+
+.product-card {
+    background: #191919;
+    height: 100%;
+    transition: .3s;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+}
+
+.product-img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h5 {
+    font-weight: bold;
+}
+
+.product-info p {
+    color: #c7ff38;
+}
+
+.add-btn {
+    border-radius: 0;
+    width: 100%;
+    padding: 12px;
+    font-size: 12px;
+}
+
+.add-btn:hover {
+    background: #c7ff38;
+    color: #101010;
+    border-color: #c7ff38;
+}
+
+.cart-box {
+    border: 1px solid #444;
+    padding: 20px;
+    margin-top: 35px;
+    font-size: 14px;
+}
+
+/* ABOUT */
+.about-section {
+    background: #c7ff38;
+    color: #101010;
+    padding: 100px 0;
+}
+
+.about-section .tagline {
+    color: #333;
+}
+
+.about-section h2 {
+    font-size: 65px;
+}
+
+.about-section p {
+    line-height: 1.8;
+}
+
+/* CONTACT */
+.contact-form {
+    max-width: 500px;
+}
+
+.form-control {
+    background: #191919;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 0;
+    padding: 13px;
+}
+
+.form-control:focus {
+    background: #191919;
+    color: white;
+    border-color: #c7ff38;
+    box-shadow: none;
+}
+
+.form-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+#form-message {
+    color: #c7ff38;
+    text-align: center;
+}
+
+/* FOOTER */
+.footer {
+    border-top: 1px solid #333;
+    padding: 25px 0;
+    font-size: 11px;
+    color: #999;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 40px;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .product-img {
+        height: 320px;
+    }
+
+    .about-section {
+        padding: 65px 0;
+    }
+
+    .about-section h2 {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .navbar-brand {
+        font-size: 25px;
+    }
+
+    .product-img {
+        height: 350px;
+    }
+
+    .footer .container {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="container">
+    <a class="navbar-brand" href="#home">EVERY DAY HUSTLIN<span>®</span></a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="#shop">SHOP</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+        </ul>
+    </div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<div class="container hero-content">
+    <p class="tagline">INDEPENDENT STREET CULTURE — EST. 2026</p>
+    <h1>EVERY DAY<br>HUSTLIN</h1>
+    <p class="my-4">Wear what you feel. Move how you want.</p>
+    <a href="#shop" class="btn btn-light shop-btn">SHOP THE DROP ↗</a>
+</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+<div class="marquee-track">
+NO SIGNAL ® — STREETWEAR FOR THE UNFILTERED — NO SIGNAL ® — STREETWEAR FOR THE UNFILTERED —
+</div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="shop" class="container py-5">
+<div class="section-header">
+    <p class="tagline">DROP 001 / 2026</p>
+    <h2>THE COLLECTION</h2>
+    <p>Everyday pieces. No ordinary energy.</p>
+</div>
+
+<div class="row g-4">
+
+<!-- PRODUCT 1 -->
+<div class="col-12 col-sm-6 col-lg-4">
+<div class="product-card">
+    <img src="void.webp" class="product-img" alt="Oversized hoodie">
+    <div class="product-info">
+        <h5>VOID OVERSIZED HOODIE</h5>
+        <p>₱1,899</p>
+        <button class="btn btn-outline-light add-btn" data-name="VOID OVERSIZED HOODIE" data-price="1899">ADD TO BAG +</button>
+    </div>
+</div>
+</div>
+
+<!-- PRODUCT 2 -->
+<div class="col-12 col-sm-6 col-lg-4">
+<div class="product-card">
+    <img src="tee.jfif" class="product-img" alt="Streetwear graphic shirt">
+    <div class="product-info">
+        <h5>STATIC GRAPHIC TEE</h5>
+        <p>₱999</p>
+        <button class="btn btn-outline-light add-btn" data-name="STATIC GRAPHIC TEE" data-price="999">ADD TO BAG +</button>
+    </div>
+</div>
+</div>
+
+<!-- PRODUCT 3 -->
+<div class="col-12 col-sm-6 col-lg-4">
+<div class="product-card">
+    <img src="jnco.jpg" class="product-img" alt="Streetwear cargo outfit">
+    <div class="product-info">
+        <h5>AFTER HOURS CARGO</h5>
+        <p>₱1,599</p>
+        <button class="btn btn-outline-light add-btn" data-name="AFTER HOURS CARGO" data-price="1599">ADD TO BAG +</button>
+    </div>
+</div>
+</div>
+
+</div>
+
+<!-- CART -->
+<div class="cart-box">
+    BAG ITEMS: <span id="cart-count">0</span>
+    <span class="mx-2">|</span>
+    TOTAL: ₱<span id="cart-total">0</span>
+    <button id="clear-cart" class="btn btn-sm btn-outline-light ms-2">CLEAR BAG</button>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+<div class="container">
+<div class="row align-items-center g-4">
+    <div class="col-md-6">
+        <p class="tagline">WHO WE ARE</p>
+        <h2>BUILT DIFFERENT.<br>WORN DIFFERENT.</h2>
+    </div>
+    <div class="col-md-6">
+        <p>
+        NO SIGNAL is an independent streetwear concept inspired by the
+        underground, the city, and people who refuse to fit inside
+        the ordinary. We believe style is not about following rules —
+        it's about creating your own identity.
+        </p>
+        <p>Less noise. More identity. No permission needed.</p>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="container py-5">
+<div class="section-header text-center">
+    <p class="tagline">GET CONNECTED</p>
+    <h2>STAY IN THE LOOP.</h2>
+    <p>Subscribe for new drops and brand updates.</p>
+</div>
+
+<form id="contact-form" class="contact-form mx-auto">
+    <div class="mb-3">
+        <label for="email" class="form-label">EMAIL ADDRESS</label>
+        <input type="email" id="email" class="form-control" placeholder="you@example.com" required>
+    </div>
+    <button type="submit" class="btn btn-light w-100">JOIN THE SIGNAL ↗</button>
+    <p id="form-message" class="mt-3"></p>
+</form>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container d-flex flex-wrap justify-content-between gap-2">
+    <p>NO SIGNAL® — EST. 2026</p>
+    <p>STREETWEAR FOR THE UNFILTERED.</p>
+    <p>© 2026 ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// JAVASCRIPT: SHOPPING CART
+let cartCount = 0;
+let cartTotal = 0;
+
+document.querySelectorAll(".add-btn").forEach(function(button) {
+    button.addEventListener("click", function() {
+        let price = Number(this.dataset.price);
+        cartCount++;
+        cartTotal += price;
+
+        document.getElementById("cart-count").textContent = cartCount;
+        document.getElementById("cart-total").textContent = cartTotal.toLocaleString("en-PH");
+
+        this.textContent = "ADDED ✓";
+
+        setTimeout(() => {
+            this.textContent = "ADD TO BAG +";
+        }, 1000);
+    });
+});
+
+// CLEAR CART
+document.getElementById("clear-cart").addEventListener("click", function() {
+    cartCount = 0;
+    cartTotal = 0;
+    document.getElementById("cart-count").textContent = 0;
+    document.getElementById("cart-total").textContent = 0;
+});
+
+// JQUERY
+$(document).ready(function() {
+
+    // NEWSLETTER FORM
+    $("#contact-form").submit(function(event) {
+        event.preventDefault();
+
+        let email = $("#email").val().trim();
+
+        if (email === "") {
+            $("#form-message").text("Please enter your email.");
+        } else {
+            $("#form-message").text("You're on the list. Welcome to NO SIGNAL!");
+            $("#email").val("");
+        }
+    });
+
+    // PRODUCT HOVER
+    $(".product-card").hover(
+        function() {
+            $(this).css("border", "1px solid #c7ff38");
+        },
+        function() {
+            $(this).css("border", "1px solid transparent");
+        }
+    );
+
+    // CLOSE MOBILE NAV
+    $(".nav-link").on("click", function() {
+        $(".navbar-collapse").removeClass("show");
+    });
+
+});
+</script>
+
+</body>
+</html>
